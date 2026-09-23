@@ -37,7 +37,7 @@ const Add = () => {
     <div className="addUser">
       <Link to="/">Back</Link>
 
-      <h3>Add New User</h3>
+      <h3>Add New Users</h3>
 
       <form className="adduserform" onSubmit={submitForm}>
         <div className="inputGroup">
