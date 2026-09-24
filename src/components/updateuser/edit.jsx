@@ -9,16 +9,13 @@ const Edit = () => {
   const { id } = useParams();
 
   const [user, setUser] = useState({
-    first_name: "",
-    last_name: "",
-    email: "",
-    password: "",
-  });
+  first_name: "",
+  last_name: "",
+  email: "",
+  password: "",
+});
 
-  useEffect(() => {
-    getSingleUser();
-  }, []);
-
+useEffect(() => {
   const getSingleUser = async () => {
     try {
       const response = await axios.get(
@@ -30,6 +27,11 @@ const Edit = () => {
       console.log(error);
     }
   };
+
+  getSingleUser();
+}, [id]);
+
+ 
 
   const inputHandler = (e) => {
     const { name, value } = e.target;
