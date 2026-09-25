@@ -8,7 +8,10 @@ const User = () => {
 
   const getAllUsers = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/users");
+      const response = await axios.get(
+        "https://crud-app-server-xi.vercel.app/users"
+      );
+
       setUsers(response.data);
     } catch (error) {
       console.log(error);
@@ -27,7 +30,10 @@ const User = () => {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://localhost:8000/users/delete/${id}`);
+      await axios.delete(
+        `https://crud-app-server-xi.vercel.app/users/delete/${id}`
+      );
+
       getAllUsers();
     } catch (error) {
       console.log(error);

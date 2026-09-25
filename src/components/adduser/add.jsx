@@ -26,7 +26,11 @@ const Add = () => {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:8000/users/create", user);
+      await axios.post(
+        "https://crud-app-server-xi.vercel.app/users/create",
+        user
+      );
+
       navigate("/");
     } catch (error) {
       console.log(error);

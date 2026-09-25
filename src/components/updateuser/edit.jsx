@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
@@ -9,29 +8,27 @@ const Edit = () => {
   const { id } = useParams();
 
   const [user, setUser] = useState({
-  first_name: "",
-  last_name: "",
-  email: "",
-  password: "",
-});
+    first_name: "",
+    last_name: "",
+    email: "",
+    password: "",
+  });
 
-useEffect(() => {
-  const getSingleUser = async () => {
-    try {
-      const response = await axios.get(
-        `http://localhost:8000/users/${id}`
-      );
+  useEffect(() => {
+    const getSingleUser = async () => {
+      try {
+        const response = await axios.get(
+          `https://crud-app-server-xi.vercel.app/users/${id}`
+        );
 
-      setUser(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+        setUser(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
-  getSingleUser();
-}, [id]);
-
- 
+    getSingleUser();
+  }, [id]);
 
   const inputHandler = (e) => {
     const { name, value } = e.target;
@@ -47,7 +44,7 @@ useEffect(() => {
 
     try {
       await axios.put(
-        `http://localhost:8000/users/edit/${id}`,
+        `https://crud-app-server-xi.vercel.app/users/edit/${id}`,
         user
       );
 
@@ -109,9 +106,7 @@ useEffect(() => {
         </div>
 
         <div className="inputGroup">
-          <button type="submit">
-            Update User
-          </button>
+          <button type="submit">Update User</button>
         </div>
       </form>
     </div>
